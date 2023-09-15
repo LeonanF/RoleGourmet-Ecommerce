@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rolê Gourmet</title>
+    <link rel="stylesheet" href="dist/main-tailwind.css">
+    <link rel="icon" href="frontend/assets/Logo.png">
+    <script src="frontend/js/main.js" defer></script>
+</head>
+<body>
+
+    <!--Cabeçalho-->
+    <header class="flex justify-between p-8 items-center bg-main-light">
+        <figure class="h-auto">
+            <img src="frontend/assets/Logo.png" alt="Logo Rolê Gourmet" class="w-16">
+        </figure>
+        <nav>
+            <ul class="flex items-center gap-4 h-6">
+                <li class="h-auto max-h-6">
+                    <button>
+                        <img src="frontend/assets/searchsvg.svg" alt="Pesquisa" class="w-6 h-6">
+                    </button>
+                </li>
+                <li class="h-auto max-h-6">
+                    <button>
+                       <img src="frontend/assets/cartsvg.svg" alt="Carrinho de compras" class="w-6 h-6">
+                    </button>
+                </li>
+                <li class="flex items-center">
+                    <button id="btn-menu" class="w-6 h-6">
+                        <span id="hamburguer-box" class="flex flex-col justify-between items-end gap-2 ">
+                          <span class="hamburguer-line w-full bg-black h-px transition-all duration-500 delay-100"></span>
+                          <span class="hamburguer-line w-full bg-black h-px transition-all duration-500 delay-100"></span>
+                          <span class="hamburguer-line w-full bg-black h-px transition-all duration-500 delay-100"></span>
+                        </span>
+                      </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!--Seção para conter o menu navegável-->
+    <section id="menu" class="flex justify-center w-full pb-6 hidden animate-appear bg-main-light">
+    <nav>
+        <ul class="flex flex-col gap-4 text-center text-main-brown text-xl uppercase">
+            <li><a href="#">Página Inicial</a></li>
+            <li><a href="#">Produtos</a></li>
+            <li><a href="#">Contato</a></li>
+        </ul>
+    </nav>
+    </section>
+
+    <!--Seção para conter o conteúdo principal da página-->
+    <section id="main-container" class="h-screen text-center pt-16 bg-black text-white">
+        
+        <div id="main-text" class="flex flex-col items-center gap-8">
+            <h3 class="font-bold text-lg">Natal 2023</h3>
+            
+            <h1 class="font-bold text-2xl">Cardápio especial</h1>
+            
+            <h2 class="font-extralight text-2xl w-1/2">Doces que tornam o seu Natal mais doce.</h2>
+        
+        </div>
+
+        <button id="btn-produtos" class="mt-16 uppercase font-thin border-2 border-white border-solid rounded-full p-3 hover:scale-105 transition-transform duration-150 ease-linear">Produtos</button>
+
+    </section>
+
+    <!--Rodapé da página-->
+    <footer class="flex flex-col justify-around items-center h-[50vh] bg-main-light text-main-brown">
+
+        <div id="contato" class=" flex flex-col h-fit gap-4 text-center">
+
+            <h1>Entre em contato</h1>
+
+            <div id="telefone" class="flex justify-center">
+                <a href="tel:+5591980541462" class="flex">
+                    <img src="frontend/assets/telephone.svg" alt="Ícone de telefone" class="max-h-6">
+                <i>
+                    &nbsp(91) 98054-1462
+                </i>
+                </a>
+            </div>
+
+            <div id="endereco" class="flex justify-center">
+                <img src="frontend/assets/adress.svg" alt="Ícone de endereço" class="max-h-6">
+                <address>
+                    Rua Cipriano Mendes, 627
+                </address>
+            </div>
+        </div>
+
+        <div id="copyrights" class="text-center">
+            <h1>
+                Desenvolvido por Leonan Freitas
+                <br>
+                Todos os direitos reservados
+            </h1>
+        </div>
+
+        <div id="socials" class="flex justify-between w-1/6">
+            
+            <a href="https://www.instagram.com/gourmet_role/" target="_blank">
+                <img src="frontend/assets/instagram.svg" alt="Instagram da Rolê Gourmet">
+            </a>
+            
+            <a href="https://wa.me/559180541462" target="_blank">
+                <img src="frontend/assets/whatsapp.svg" alt="Whatsapp da Rolê Gourmet">
+            </a>
+            </div>
+
+    </footer>
+
+</body>
+</html>
