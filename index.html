@@ -52,18 +52,21 @@
     </section>
 
     <!--Seção para conter o conteúdo principal da página-->
-    <section id="main-container" class="h-screen text-center pt-16 bg-black text-white">
+    <section id="main-container" class="h-screen text-center bg-black text-white relative">
         
-        <div id="main-text" class="flex flex-col items-center gap-8">
+        <figure id="main-img" class="h-full w-full bg-[url('../frontend/assets/main-img.webp')] bg-cover bg-center opacity-50">
+
+        </figure>
+
+        <div id="main-text" class="flex flex-col items-center gap-8 pt-16 absolute top-0">
             <h3 class="font-bold text-lg">Natal 2023</h3>
             
             <h1 class="font-bold text-2xl">Cardápio especial</h1>
             
             <h2 class="font-extralight text-2xl w-1/2">Doces que tornam o seu Natal mais doce.</h2>
         
+            <button id="btn-produtos" class="mt-16 uppercase font-thin border-2 border-white border-solid rounded-full p-3 hover:scale-75 transition-transform duration-150 ease-linear">Produtos</button>
         </div>
-
-        <button id="btn-produtos" class="mt-16 uppercase font-thin border-2 border-white border-solid rounded-full p-3 hover:scale-105 transition-transform duration-150 ease-linear">Produtos</button>
 
     </section>
 
