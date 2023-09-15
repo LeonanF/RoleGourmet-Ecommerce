@@ -41,7 +41,7 @@
     </header>
     
     <!--Seção para conter o menu navegável-->
-    <section id="menu" class="flex justify-center w-full pb-6 hidden bg-main-light">
+    <section id="menu" class="flex justify-center w-full p-6 hidden bg-main-light border-t-2 border-main-brown">
     <nav>
         <ul class="flex flex-col gap-4 text-center text-main-brown animate-appear text-xl uppercase">
             <li><a href="#">Página Inicial</a></li>
@@ -52,21 +52,21 @@
     </section>
 
     <!--Seção para conter o conteúdo principal da página-->
-    <section id="main-container" class="h-screen text-center bg-black text-white relative">
+    <section id="main-container" class="flex items-center h-screen text-center bg-black text-white relative">
         
-        <figure id="main-img" class="h-full w-full bg-[url('../frontend/assets/main-img.webp')] bg-cover bg-center opacity-50">
-
-        </figure>
-
-        <div id="main-text" class="w-full flex flex-col items-center gap-8 pt-16 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div id="main-text" class="w-full flex flex-col items-center gap-8 pt-16 relative z-10">
             <h3 class="font-bold text-lg">Natal 2023</h3>
             
             <h1 class="font-bold text-2xl">Cardápio especial</h1>
             
             <h2 class="font-extralight text-2xl w-1/2">Doces que tornam o seu Natal mais doce.</h2>
         
-            <button id="btn-produtos" class="mt-16 uppercase font-thin border-2 border-white border-solid rounded-full p-3 hover:scale-75 transition-transform duration-150 ease-linear">Produtos</button>
+            <button id="btn-produtos" class="uppercase font-thin border-2 border-white border-solid rounded-full p-3 hover:scale-75 transition-transform duration-150 ease-linear">Produtos</button>
         </div>
+
+        <figure id="main-img" class="h-full w-full bg-[url('../frontend/assets/main-img.webp')] bg-cover bg-center opacity-50 absolute top-0">
+
+        </figure>
 
     </section>
 
@@ -102,7 +102,7 @@
             </h1>
         </div>
 
-        <div id="socials" class="flex justify-between w-1/6">
+        <div id="socials" class="flex justify-between w-[20vw] md:w-[15vw] lg:w-[10vw] xl:w-[7vw] 2xl:w-[5vw]">
             
             <a href="https://www.instagram.com/gourmet_role/" target="_blank">
                 <img src="frontend/assets/instagram.svg" alt="Instagram da Rolê Gourmet">
