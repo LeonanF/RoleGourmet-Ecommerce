@@ -4,27 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rolê Gourmet</title>
-    <link rel="stylesheet" href="dist/main-tailwind.css">
-    <link rel="icon" href="frontend/assets/Logo.png">
-    <script src="frontend/js/main.js" defer></script>
+    <link rel="stylesheet" href="static/dist/main-tailwind.css">
+    <link rel="icon" href="static/assets/Logo.png">
+    <script src="static/js/main.js" defer></script>
 </head>
 <body>
 
     <!--Cabeçalho-->
     <header class="flex justify-between p-8 items-center bg-main-light">
         <figure class="h-auto">
-            <img src="frontend/assets/Logo.png" alt="Logo Rolê Gourmet" class="w-16">
+            <img src="static/assets/Logo.png" alt="Logo Rolê Gourmet" class="w-16">
         </figure>
         <nav>
             <ul class="flex items-center gap-4 h-6">
                 <li class="h-auto max-h-6">
                     <button>
-                        <img src="frontend/assets/searchsvg.svg" alt="Pesquisa" class="w-6 h-6">
+                        <img src="static/assets/searchsvg.svg" alt="Pesquisa" class="w-6 h-6">
                     </button>
                 </li>
                 <li class="h-auto max-h-6">
                     <button>
-                       <img src="frontend/assets/cartsvg.svg" alt="Carrinho de compras" class="w-6 h-6">
+                       <img src="static/assets/cartsvg.svg" alt="Carrinho de compras" class="w-6 h-6">
                     </button>
                 </li>
                 <li class="flex items-center">
@@ -51,7 +51,26 @@
     </nav>
     </section>
 
-    <section class="h-screen">
+    <!--Seção para conter o conteúdo principal da página-->
+    <section id="main-container" class="flex items-center h-screen text-center bg-black text-white relative">
+        
+        <div id="main-text" class="w-full flex flex-col items-center gap-8 pt-16 relative z-10">
+            <h3 class="font-bold text-lg">Natal 2023</h3>
+            
+            <h1 class="font-bold text-2xl">Cardápio especial</h1>
+            
+            <h2 class="font-extralight text-2xl w-1/2">Doces que tornam o seu Natal mais doce.</h2>
+        
+            <a href="produtos.html">
+                <button id="btn-produtos" class="uppercase font-thin border-2 border-white border-solid rounded-full p-3 hover:scale-90 transition-transform duration-150 ease-linear">
+                    Produtos
+                </button>
+            </a>
+        </div>
+
+        <figure id="main-img" class="h-full w-full bg-[url('../assets/main-img.webp')] bg-cover bg-center opacity-50 absolute top-0">
+
+        </figure>
 
     </section>
 
@@ -64,7 +83,7 @@
 
             <div id="telefone" class="flex justify-center">
                 <a href="tel:+5591980541462" class="flex">
-                    <img src="frontend/assets/telephone.svg" alt="Ícone de telefone" class="max-h-6">
+                    <img src="static/assets/telephone.svg" alt="Ícone de telefone" class="max-h-6">
                 <i>
                     &nbsp(91) 98054-1462
                 </i>
@@ -72,7 +91,7 @@
             </div>
 
             <div id="endereco" class="flex justify-center">
-                <img src="frontend/assets/adress.svg" alt="Ícone de endereço" class="max-h-6">
+                <img src="static/assets/adress.svg" alt="Ícone de endereço" class="max-h-6">
                 <address>
                     Rua Cipriano Mendes, 627
                 </address>
@@ -90,12 +109,15 @@
         <div id="socials" class="flex justify-between w-[20vw] md:w-[15vw] lg:w-[10vw] xl:w-[7vw] 2xl:w-[5vw]">
             
             <a href="https://www.instagram.com/gourmet_role/" target="_blank">
-                <img src="frontend/assets/instagram.svg" alt="Instagram da Rolê Gourmet">
+                <img src="static/assets/instagram.svg" alt="Instagram da Rolê Gourmet">
             </a>
             
             <a href="https://wa.me/559180541462" target="_blank">
-                <img src="frontend/assets/whatsapp.svg" alt="Whatsapp da Rolê Gourmet">
+                <img src="static/assets/whatsapp.svg" alt="Whatsapp da Rolê Gourmet">
             </a>
             </div>
 
     </footer>
+
+</body>
+</html>
