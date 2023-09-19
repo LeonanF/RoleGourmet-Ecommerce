@@ -149,6 +149,8 @@ func connectToDataBase() {
 	//É criada uma váriavel Go para armazenar o valor da váriavel de ambiente
 	mongodbURI := os.Getenv("MONGODB_URI")
 
+	fmt.Println(mongodbURI)
+
 	if mongodbURI == "" {
 		//Seta a variável de ambiente com o valor de MongoDBURI (propriedade do struct Config)
 		os.Setenv("MONGODB_URI", config.MongoDBURI)
