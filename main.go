@@ -108,8 +108,14 @@ func createServer() {
 		})
 	})
 
+	port := os.Getenv("PORT")
+
+	if port == "" {
+		port = "8080"
+	}
+
 	// Inicia o servidor
-	server.Run()
+	server.Run(":" + port)
 }
 
 func connectToDataBase() {
