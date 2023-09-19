@@ -146,11 +146,13 @@ func connectToDataBase() {
 		return
 	}
 
-	//Seta a variável de ambiente com o valor de MongoDBURI (propriedade do struct Config)
-	os.Setenv("MONGODB_URI", config.MongoDBURI)
-
 	//É criada uma váriavel Go para armazenar o valor da váriavel de ambiente
 	mongodbURI := os.Getenv("MONGODB_URI")
+
+	if mongodbURI == "" {
+		//Seta a variável de ambiente com o valor de MongoDBURI (propriedade do struct Config)
+		os.Setenv("MONGODB_URI", config.MongoDBURI)
+	}
 
 	//Primeiro é criado um cliente MongoDB, e usada a função Connect para conectar com o banco de dados
 	//É fornecido um contexto de fundo neutro, e configurado a URI de conexão (com a váriavel criada acima)
