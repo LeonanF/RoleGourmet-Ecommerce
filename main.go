@@ -108,13 +108,15 @@ func createServer() {
 		})
 	})
 
+	//O código busca o valor da váriavel de ambiente PORT
 	port := os.Getenv("PORT")
 
+	//É feito um teste para definir se o valor da variável está vazio/variável não definida. Caso esteja, é atribuído um valor padrão à variável
 	if port == "" {
 		port = "8080"
 	}
 
-	// Inicia o servidor
+	// Inicia o servidor com a porta definida acima
 	server.Run(":" + port)
 }
 
