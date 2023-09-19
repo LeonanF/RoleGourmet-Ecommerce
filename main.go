@@ -34,6 +34,10 @@ func main() {
 }
 
 func createServer() {
+
+	//Chama a função de conexão ao banco de dados
+	connectToDataBase()
+
 	// Cria um novo servidor Gin
 	server := gin.New()
 
@@ -48,8 +52,6 @@ func createServer() {
 	// Configura a rota /static para servir arquivos estáticos da pasta "static"
 	server.Static("/static", "./static")
 
-	//Chama a função de conexão ao banco de dados
-	connectToDataBase()
 	//Faz com que o banco de dados desconecte somente quando o programa parar de executar
 	defer mongoClient.Disconnect(context.Background())
 
