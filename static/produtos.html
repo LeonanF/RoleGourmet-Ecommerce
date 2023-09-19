@@ -51,8 +51,36 @@
     </nav>
     </section>
 
-    <section class="h-screen">
+    <section id="prod-intro" class="h-screen flex items-center bg-black relative text-[#eadfd4] font-medium">
+        <div id="intro" class="w-full flex flex-col items-center justify-center gap-8 relative z-10 text-center">
+            <h1 class="text-3xl uppercase">
+                Nossos produtos
+            </h1>
+            <p class="w-3/4">A época mais mágica do ano está chegando, e não há nada melhor do que celebrar com doces deliciosos.</p>
+        </div>
+        <figure id="main-img" class="h-full w-full bg-[url('../assets/main-prod-bg.webp')] bg-cover bg-center opacity-50 absolute top-0">
+        </figure>
+    </section>
 
+    <section id="prod-main" class="min-h-screen flex flex-wrap justify-center items-center p-8 bg-main-light gap-4 border-b-4 border-main-brown">
+        {{range .Produtos}}
+        <div class="w-full max-w-[500px] lg:min-h-[660px] bg-red-500 p-4 rounded-xl space-y-4 text-[#eadfd4] flex flex-col justify-between">
+            <div id="main-prod">
+            <figure class="flex items-center text-white flex-col">
+                <img src="static/assets/img-prod-{{.Name}}.webp" alt="Imagem do produto 1" class="rounded">
+                    <figcaption class="text-lg text-[#FFD700] font-serif font-thin subpixel-antialiased uppercase">
+                        {{.Category}}
+                    </figcaption>
+            </figure>
+            <h1 class="font-bold text-lg">{{.Name}}</h1>
+            <p>{{.Description}}</p>
+            </div>
+            <div id="value-cart" class="align-bottom space-y-4">
+            <h2 class="indent-2">R$ {{.Value}}</h2>
+            <button class=" w-full border-4 rounded-full p-1.5 text-center">Adicionar ao carrinho</button>
+            </div>
+        </div>
+        {{end}}
     </section>
 
     <!--Rodapé da página-->
