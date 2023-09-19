@@ -122,39 +122,36 @@ func createServer() {
 
 func connectToDataBase() {
 
-	// Abra o arquivo config.json e em caso de erro, imprime o erro e encerra a função
-	configFile, err := os.Open("config.json")
-	if err != nil {
-		fmt.Println("Erro ao abrir o arquivo de configuração:", err)
-		return
-	}
+	if os.Getenv("MONGODB_URI") == "" {
+		// Abra o arquivo config.json e em caso de erro, imprime o erro e encerra a função
+		configFile, err := os.Open("config.json")
+		if err != nil {
+			fmt.Println("Erro ao abrir o arquivo de configuração:", err)
+			return
+		}
 
-	//Garante que o arquivo seja fechado no fim da execução
-	defer configFile.Close()
+		//Garante que o arquivo seja fechado no fim da execução
+		defer configFile.Close()
 
-	//Criada váriavel do tipo Config (struct no início) para armazenar os dados do arquivo .json
-	var config Config
+		//Criada váriavel do tipo Config (struct no início) para armazenar os dados do arquivo .json
+		var config Config
 
-	// É criado um novo decodificador para ler os dados do arquivo configFile
-	decoder := json.NewDecoder(configFile)
+		// É criado um novo decodificador para ler os dados do arquivo configFile
+		decoder := json.NewDecoder(configFile)
 
-	//O código a seguir é que vai, efetivamente, decodificar e converter o JSON em uma estrutura de dados do tipo Config
-	//Para entender a criação de err como váriavel de bloco, verificar documentação da função createServer()
-	//Em caso de erro, a função é imediatamente encerrada e o erro é impresso
-	if err := decoder.Decode(&config); err != nil {
-		fmt.Println("Erro ao decodificar o arquivo de configuração:", err)
-		return
-	}
+		//O código a seguir é que vai, efetivamente, decodificar e converter o JSON em uma estrutura de dados do tipo Config
+		//Para entender a criação de err como váriavel de bloco, verificar documentação da função createServer()
+		//Em caso de erro, a função é imediatamente encerrada e o erro é impresso
+		if err := decoder.Decode(&config); err != nil {
+			fmt.Println("Erro ao decodificar o arquivo de configuração:", err)
+			return
+		}
 
-	//É criada uma váriavel Go para armazenar o valor da váriavel de ambiente
-	mongodbURI := os.Getenv("MONGODB_URI")
-
-	fmt.Println(mongodbURI)
-
-	if mongodbURI == "" {
 		//Seta a variável de ambiente com o valor de MongoDBURI (propriedade do struct Config)
 		os.Setenv("MONGODB_URI", config.MongoDBURI)
 	}
+	//É criada uma váriavel Go para armazenar o valor da váriavel de ambiente
+	mongodbURI := os.Getenv("MONGODB_URI")
 
 	//Primeiro é criado um cliente MongoDB, e usada a função Connect para conectar com o banco de dados
 	//É fornecido um contexto de fundo neutro, e configurado a URI de conexão (com a váriavel criada acima)
