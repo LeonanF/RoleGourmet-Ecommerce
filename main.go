@@ -19,7 +19,9 @@ var (
 )
 
 type Config struct {
-	MongoDBURI string `json:"MONGODB_URI"`
+	MongoDBURI     string `json:"MONGODB_URI"`
+	DatabaseName   string `json:"DATABASE_NAME"`
+	CollectionName string `json:"COLLECTION_NAME"`
 }
 
 type Produtos struct {
@@ -122,6 +124,7 @@ func createServer() {
 
 func connectToDataBase() {
 
+	//Caso não haja uma variável global com a URI da conexão, cria um
 	if os.Getenv("MONGODB_URI") == "" {
 		// Abra o arquivo config.json e em caso de erro, imprime o erro e encerra a função
 		configFile, err := os.Open("config.json")
@@ -147,11 +150,16 @@ func connectToDataBase() {
 			return
 		}
 
-		//Seta a variável de ambiente com o valor de MongoDBURI (propriedade do struct Config)
+		//Seta as variáveis de ambiente com os valores do arquivo de configuração (propriedades do struct Config)
 		os.Setenv("MONGODB_URI", config.MongoDBURI)
+		os.Setenv("DATABASE_NAME", config.DatabaseName)
+		os.Setenv("DATABASE_NAME", config.CollectionName)
 	}
+
 	//É criada uma váriavel Go para armazenar o valor da váriavel de ambiente
 	mongodbURI := os.Getenv("MONGODB_URI")
+	databaseName := os.Getenv("DATABASE_NAME")
+	collectionName := os.Getenv("COLLECTION_NAME")
 
 	//Primeiro é criado um cliente MongoDB, e usada a função Connect para conectar com o banco de dados
 	//É fornecido um contexto de fundo neutro, e configurado a URI de conexão (com a váriavel criada acima)
@@ -165,6 +173,6 @@ func connectToDataBase() {
 	mongoClient = client
 
 	//É especificada a coleção de documentos a ser trabalhado em cima.
-	collection = client.Database("rolegourmet").Collection("produtos")
+	collection = client.Database(databaseName).Collection(collectionName)
 
 }
