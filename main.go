@@ -65,12 +65,19 @@ func createServer() {
 		//Executa a consulta e retorna os elementos para o cursor(ponteiro)
 		//Chama o método find na collection (váriavel que representa a coleção de dados, definida globalmente)
 		//Um contexto de fundo neutro é criado e usado na consulta junto ao filtro definido anteriormente
-		cursor, err := collection.Find(context.Background(), filter)
 
-		//Verifica se ocorreu algum erro durante a consulta e, caso sim, envia uma resposta HTTP com o código de erro e encerra a função
-		if err != nil {
-			c.AbortWithStatus(500)
-			return
+		var cursor *mongo.Cursor
+
+		if collection != nil {
+			var err error
+			cursor, err = collection.Find(context.Background(), filter)
+
+			//Verifica se ocorreu algum erro durante a consulta e, caso sim, envia uma resposta HTTP com o código de erro e encerra a função
+			if err != nil {
+				c.AbortWithStatus(500)
+				return
+			}
+
 		}
 
 		//Cria um slice do tipo Produtos (struct definido no início)
